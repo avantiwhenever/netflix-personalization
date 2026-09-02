@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Artwork Personalization Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Artwork Personalization Demo</h1>
+    <p class="subtitle">
+      Inspired by Netflix's
+      <a href="https://netflixtechblog.com/maps-netflixs-multimodal-asset-personalization-at-scale-32f96320785e" target="_blank" rel="noopener noreferrer">MAPS</a>
+      blog post — personalizing which poster gets shown per title, using CLIP
+      image embeddings instead of interaction history. Not affiliated with
+      Netflix; posters and metadata from <a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">TMDB</a>.
+    </p>
+  </header>
+
+  <main>
+    <section id="profile-builder">
+      <h2>1. Build a taste profile</h2>
+      <div id="personas"></div>
+      <p class="or">— or —</p>
+      <p>Click a few posters below that match your taste, then rank:</p>
+      <div id="picker-grid" class="poster-grid"></div>
+      <button id="rank-button" disabled>Show my personalized picks</button>
+      <p id="profile-status" class="status"></p>
+    </section>
+
+    <section id="results" hidden>
+      <h2>2. Personalized vs. default pick</h2>
+      <p class="hint">
+        For each title, the poster with the highest similarity to your taste
+        vector is shown first, with the score. "Default" is TMDB's own
+        primary poster for that title — a stand-in for the generic,
+        non-personalized pick.
+      </p>
+      <div id="results-grid" class="results-grid"></div>
+    </section>
+
+    <p id="loading">Loading catalog…</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

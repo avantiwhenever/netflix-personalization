@@ -1,0 +1,5 @@
+requests
+python-dotenv
+sentence-transformers
+Pillow
+numpy
